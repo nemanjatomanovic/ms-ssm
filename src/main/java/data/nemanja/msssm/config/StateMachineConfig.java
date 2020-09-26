@@ -19,8 +19,8 @@ public class StateMachineConfig extends StateMachineConfigurerAdapter<PaymentSta
         states.withStates()
                 .initial(PaymentState.NEW)
                 .states(EnumSet.allOf(PaymentState.class))
-                .end(PaymentState.AUTH)
-                .end(PaymentState.PRE_AUTH_ERROR)
-                .end(PaymentState.AUTH_ERROR);
+                .end(PaymentState.AUTH) //ends happy path
+                .end(PaymentState.PRE_AUTH_ERROR)// terminal error
+                .end(PaymentState.AUTH_ERROR); // terminal error
     }
 }
